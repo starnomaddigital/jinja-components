@@ -1,0 +1,22 @@
+{% import '_random-id.jinja' as random_id %}
+{% set sid = random_id.random_id(10) %}
+
+<style>
+.highlight-{{ sid }} {
+    background-color: black;
+}
+
+.highlight-{{ sid }} p {
+    color: grey;
+}
+
+.large-cell-{{ sid }} {
+    padding: 8px 12px;
+}
+</style>
+
+<div id="footer-container">
+    <div class="highlight-{{ sid }}">
+        <p class="large-cell-{{ sid }}">&copy {{ brand }} {{ year }}</p>
+    </div>
+</div>

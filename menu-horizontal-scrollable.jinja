@@ -1,0 +1,20 @@
+{% import '_random-id.jinja' as random_id %}
+{% set sid = random_id.random_id(10) %}
+
+<style>
+.header-menu-{{ sid }} {
+    background-color: #000;
+}
+</style>
+
+<div class="header-container">
+    <div class="header-menu-{{ sid }} pure-menu pure-menu-horizontal pure-menu-scrollable pure-menu-fixed">
+        <a class="pure-menu-heading" href="{{ title.link }}">{{ title.text }} </a>
+
+        <ul class="pure-menu-list">
+            {% for item in menu_items %}
+            <li class='pure-menu-item'><a href='{{ item.link }}' class='pure-menu-link'>{{ item.text }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

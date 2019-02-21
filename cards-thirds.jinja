@@ -1,0 +1,51 @@
+{% import '_random-id.jinja' as random_id %}
+{% set sid = random_id.random_id(10) %}
+
+<style>
+
+.cell-{{ sid }} {
+    padding: 8px 12px;
+}
+
+.card-container-{{ sid }} {
+    padding: 8px;
+    height: 90%;
+}
+
+.card-{{ sid }} {
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
+    position: relative;
+    height: 100%;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.highlight-{{ sid }} {
+    background-color: #aaa;
+}
+
+.card-highlight-{{ sid }} {
+    background-color: #eee;
+}
+
+</style>
+
+<div class="pure-g">
+    <div class="row">
+        {% for card in cards %}
+        <div class="highlight-{{ sid }} pure-u-1 pure-u-md-1-3">
+            <div class="card-container-{{ sid }}">
+                <div class="card-{{ sid }} card-highlight-{{ sid }}">
+                    <div class="cell-{{ sid }}">
+                        <h2>{{ card.title }}</h2>
+                        {% for paragraph in card.paragraphs %}
+                        <p>{{ paragraph }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

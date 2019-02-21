@@ -1,0 +1,8 @@
+<!-- Jinja Unique ID Generator -->
+<!-- Derived from https://gist.github.com/hijonathan/5db3d8ec64e267d06c32#file-example-html -->
+
+{%- macro random_id(len) -%}
+  {%- for _ in range(len) -%}
+    {{ range(10) | random }}
+  {%- endfor -%}
+{%- endmacro -%}

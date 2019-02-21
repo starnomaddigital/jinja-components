@@ -1,0 +1,62 @@
+{% import '_random-id.jinja' as random_id %}
+{% set sid = random_id.random_id(10) %}
+<style>
+.highlight-{{ sid }} {
+    background-color: #aaa;
+}
+
+.highlight-2-{{ sid }} {
+    background-color: #eee;
+}
+
+.img-container-{{ sid }} {
+    padding: 10px;
+    text-align: center;
+}
+    
+.thumbnail-{{ sid }} {
+    width: 160px;
+    height: auto;
+    border-radius: 50%;
+    vertical-align: center;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cell-{{ sid }} {
+    padding: 12px;
+}
+
+/* Courtesy of https://leaverou.github.io/bubbly/ */
+.speech-bubble-{{ sid }} {
+    position: relative;
+}
+
+.speech-bubble-{{ sid }}:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-right-color: #eee;
+    border-left: 0;
+    margin-top: -5%;
+    margin-left: -20px;
+}
+</style>
+
+<div class="content-container">
+    <div class="pure-g">
+        <div class="highlight-{{ sid }} pure-u-1 pure-u-md-1-4">
+            <div class="img-container-{{ sid }}">
+                <img src="{{ speech_bubble.image }}" class="thumbnail-{{ sid }}">
+            </div>
+        </div>
+        <div class="highlight-2-{{ sid }} pure-u-1 pure-u-md-3-4">
+            <div class="cell-{{ sid }} speech-bubble-{{ sid }}">
+                <p>{{ speech_bubble.speech }}</p>
+            </div>
+        </div>
+    </div>
+</div>
