@@ -18,6 +18,11 @@
     height: 250px;
     text-align: justify;
     text-align-last: center;
+    transition: transform 0.4s;
+}
+
+.card-{{ sid }}:hover {
+    transform: scale(1.05);
 }
 
 .highlight-{{ sid }} {
@@ -52,9 +57,6 @@
 
 </style>
 
-EOD;
-
-$html_template = <<<EOD
 <div class="pure-g">
     <div class="row">
         {% for card in cards %}
